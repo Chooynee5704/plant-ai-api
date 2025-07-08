@@ -4,6 +4,10 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return jsonify({"message": "Plant AI API is running. Use POST /predict to get prediction."})
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if 'image' not in request.files:
